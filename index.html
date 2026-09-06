@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TorqEbikes — premium e-bike parts and accessories for custom builds.">
+  <title>TorqEbikes — Build Different</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">FREE SHIPPING IN THE EU ON ORDERS OVER €100 · FOLLOW @TORQEBIKES</div>
+
+  <header>
+    <a class="brand" href="#home" aria-label="TorqEbikes home"><img src="images/torq-logo.png" alt="TorqEbikes logo"></a>
+    <nav><a href="#shop">Shop</a><a href="#about">About</a><a href="#tiktok">TikTok</a><a href="#reviews">Reviews</a><a href="#shipping">Shipping</a></nav>
+    <div class="header-actions">
+      <button class="icon-button" id="openAccount" aria-label="Account" title="Account">♙</button>
+      <button class="cart-button" id="openCart">CART <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">TORQEBIKES PERFORMANCE</p>
+        <h1>BUILD<br><span>DIFFERENT.</span></h1>
+        <p>Premium e-bike parts, accessories and style upgrades for riders who refuse to ride stock.</p>
+        <div class="actions"><a class="btn primary" href="#shop">Shop Parts</a><a class="btn ghost" href="#tiktok">Watch TikTok</a></div>
+        <div class="meta"><span>⚡ Rider focused</span><span>⚙ Premium parts</span><span>🇪🇺 EU shipping</span></div>
+      </div>
+      <div class="hero-art"><div class="glow"></div><img src="images/hero-bike.png" alt="Electric bike" onerror="this.style.display='none'"></div>
+    </section>
+
+    <section class="ticker"><div>CNC PARTS</div><div>ODI STYLE</div><div>SURRON ACCESSORIES</div><div>RIDER ESSENTIALS</div><div>TORQEBIKES</div></section>
+
+    <section class="shop" id="shop">
+      <div class="heading"><div><p class="eyebrow">THE TORQ SHOP</p><h2>FEATURED <span>PARTS.</span></h2></div><p>Tap a product to see details, variants and availability.</p></div>
+      <div class="tools"><div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search products..."></div><div class="filters"><button class="filter active" data-cat="all">All</button><button class="filter" data-cat="controls">Controls</button><button class="filter" data-cat="style">Style</button><button class="filter" data-cat="comfort">Comfort</button><button class="filter" data-cat="accessories">Accessories</button><button class="filter" data-cat="display">Display</button></div></div>
+      <div class="grid" id="grid"></div><p class="no-results" id="noResults">No products found.</p>
+    </section>
+
+    <section class="feature" id="about">
+      <div class="feature-image"><img src="images/build.png" alt="Custom e-bike build" onerror="this.style.display='none'"></div>
+      <div><p class="eyebrow">NOT JUST PARTS</p><h2>MAKE YOUR<br><span>BUILD YOURS.</span></h2><p class="feature-text">TorqEbikes is built around the culture: custom bikes, clean details, hard rides and content worth watching. Pick your parts, make the bike yours and tag us in the build.</p><div class="points"><div><b>01</b><span>Premium-looking upgrades</span></div><div><b>02</b><span>Simple, rider-focused selection</span></div><div><b>03</b><span>New drops & builds on TikTok</span></div></div></div>
+    </section>
+
+    <section class="social" id="tiktok"><div><p class="eyebrow">FOLLOW THE BUILD</p><h2>TORQEBIKES<br><span>ON TIKTOK.</span></h2><p>Build videos, product clips, new drops and e-bike content.</p><a class="btn primary" href="https://www.tiktok.com/" target="_blank" rel="noopener">Open TikTok</a></div></section>
+
+    <section class="reviews" id="reviews"><div class="section-title"><p class="eyebrow">RIDER FEEDBACK</p><h2>WHAT RIDERS <span>SAY.</span></h2></div><div class="review-window"><div class="review-track" id="reviewTrack"></div></div></section>
+
+    <section class="shipping" id="shipping"><div><b>🇪🇺 EU SHIPPING</b><span>We ship across the whole European Union</span></div><div><b>📦 FAST DISPATCH</b><span>Orders prepared quickly</span></div><div><b>🔒 SECURE ORDER</b><span>Checkout-ready setup</span></div><div><b>💬 RIDER SUPPORT</b><span>Contact us with questions</span></div></section>
+  </main>
+
+  <footer><div><a class="brand" href="#home"><img src="images/torq-logo.png" alt="TorqEbikes"></a><p>Premium e-bike parts & accessories.</p></div><div class="footer-links"><a href="#shop">Shop</a><a href="#about">About</a><a href="#shipping">Shipping</a><a href="mailto:orders@torqebikes.com">Contact</a></div><small>© 2026 TorqEbikes. All rights reserved.</small></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer"><div class="cart-head"><b>YOUR CART</b><button id="closeCart">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-bottom"><div class="total"><span>Subtotal</span><b id="total">€0.00</b></div><p>Shipping calculated at checkout.</p><button class="order whatsapp" id="whatsapp">ORDER VIA WHATSAPP</button><button class="order email" id="email">ORDER VIA EMAIL</button></div></aside>
+
+  <div class="modal" id="productModal"><div class="modal-card product-modal"><button class="modal-close" data-close="productModal">×</button><div class="modal-image"><img id="modalImage" alt=""><span id="modalBadge" class="badge"></span></div><div class="modal-info"><p class="eyebrow" id="modalCategory"></p><h2 id="modalName"></h2><p id="modalDescription" class="modal-description"></p><div class="modal-price" id="modalPrice"></div><div id="variantArea"></div><div class="shipping-note">Shipping calculated at checkout.</div><button id="modalAdd" class="modal-add"></button></div></div></div>
+
+  <div class="modal" id="accountModal"><div class="modal-card account-card"><button class="modal-close" data-close="accountModal">×</button><img class="account-logo" src="images/torq-logo.png" alt="TorqEbikes"><p class="eyebrow">TORQ ACCOUNT</p><h2 id="accountTitle">CREATE YOUR ACCOUNT</h2><p class="account-sub">Save your details locally on this device for faster orders.</p><form id="accountForm"><input id="accountName" required placeholder="Full name"><input id="accountEmail" required type="email" placeholder="Email address"><button class="modal-add" type="submit">CREATE ACCOUNT</button></form><div id="accountSaved" class="account-saved"></div></div></div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
