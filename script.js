@@ -1305,7 +1305,7 @@ $("email").onclick =
 
 
     location.href =
-      "mailto:orders@torqebikes.com" +
+      "mailto:orders@torqebikes@gmx.de" +
       "?subject=" +
       encodeURIComponent(
         "TorqEbikes Order Request"
