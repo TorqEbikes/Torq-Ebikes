@@ -461,3 +461,183 @@
     padding: 24px 17px 20px;
   }
 }
+/* =========================================
+   TORQ EBIKES - MOBILE SHOP LAYOUT
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  /* Weniger große Abstände zwischen Bereichen */
+  .shop,
+  .feature,
+  .social {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .reviews {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  /* Shop Überschrift */
+  .heading {
+    margin-bottom: 22px;
+  }
+
+  /* Suche + Filter */
+  .tools {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  /* =====================================
+     2 PRODUKTE NEBENEINANDER
+     ===================================== */
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .product {
+    min-width: 0;
+  }
+
+  .product-image {
+    height: 43vw;
+    max-height: 210px;
+  }
+
+  .info {
+    padding: 11px;
+  }
+
+  .info h3 {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .info p {
+    font-size: 9px;
+    line-height: 1.4;
+    min-height: 38px;
+  }
+
+  .row {
+    margin-top: 10px;
+    gap: 5px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .add {
+    padding: 8px 7px;
+    font-size: 7px;
+    white-space: nowrap;
+  }
+
+  .badge {
+    top: 7px;
+    left: 7px;
+    padding: 4px 5px;
+    font-size: 7px;
+  }
+
+  /* =====================================
+     HERO
+     ===================================== */
+
+  .hero {
+    min-height: 540px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .hero h1 {
+    font-size: clamp(50px, 16vw, 70px);
+  }
+
+  /* =====================================
+     TICKER
+     ===================================== */
+
+  .ticker div {
+    padding: 11px 4px;
+  }
+
+  /* =====================================
+     FEATURE
+     ===================================== */
+
+  .feature {
+    gap: 28px;
+  }
+
+  .feature-image {
+    height: 70vw;
+    max-height: 320px;
+  }
+
+  /* =====================================
+     SOCIAL
+     ===================================== */
+
+  .social > div {
+    padding: 40px 15px;
+  }
+
+  /* =====================================
+     SHIPPING
+     ===================================== */
+
+  .shipping div {
+    padding: 17px 6%;
+  }
+
+  /* =====================================
+     FOOTER
+     ===================================== */
+
+  footer {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+
+/* Sehr kleine Handys */
+@media (max-width: 400px) {
+
+  .grid {
+    gap: 7px;
+  }
+
+  .product-image {
+    height: 42vw;
+  }
+
+  .info {
+    padding: 9px;
+  }
+
+  .info h3 {
+    font-size: 11px;
+  }
+
+  .info p {
+    font-size: 8px;
+    min-height: 34px;
+  }
+
+  .price {
+    font-size: 11px;
+  }
+
+  .add {
+    font-size: 6.5px;
+    padding: 7px 5px;
+  }
+}
