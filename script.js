@@ -129,6 +129,7 @@ const products = [
     name: "eggRider Display",
     price: 44.99,
     cat: "ebike-kits",
+    cat2: "mini-ebikes",
     desc: "Compact display for a clean cockpit and easy ride data.",
     img: "images/eggrider-display.png",
     badge: "NEW",
@@ -138,7 +139,7 @@ const products = [
         label: "Version",
         options: [
           { name: "SM Plug (E-Kit)", price: 44.99 },
-          { name: "WP Plug", price: 44.99 }
+          { name: "WP Plug (Yozma)", price: 44.99 }
         ]
       }
     ]
@@ -203,52 +204,64 @@ const products = [
      ========================================= */
 
   {
-    id: 10,
-    name: "Foot Pegs",
-    price: 0,
-    cat: "mini-ebikes",
-    desc: "CNC-style foot pegs for a clean and secure Mini E Moto setup.",
-    img: "images/foot-pegs-mini.png",
-    badge: "NEW",
-    soldOut: false,
-    variants: []
-  },
+  id: 10,
+  name: "Titanium Foot Pegs",
+  price: 64.99,
+  cat: "mini-ebikes",
+  desc: "CNC-style foot pegs for a clean and secure Mini E Moto setup.",
+  img: "images/foot-pegs-mini.png",
+  badge: "NEW",
+  soldOut: false,
+  variants: [
+    {
+      label: "Color",
+      options: [
+        { name: "Silver", price: 0 },
+        { name: "Black", price: 0 }
+      ]
+    }
+  ]
+},
 
-  {
-    id: 11,
-    name: "Yozma CNC Motor Cover",
-    price: 0,
-    cat: "mini-ebikes",
-    desc: "CNC motor cover for a clean and upgraded Mini E Moto look.",
-    img: "images/yozma-cnc-motor-cover.png",
-    badge: "NEW",
-    soldOut: false,
-    variants: []
-  },
+{
+  id: 11,
+  name: "Yozma CNC Motor Cover",
+  price: 37.99,
+  cat: "mini-ebikes",
+  desc: "CNC motor cover for a clean and upgraded Mini E Moto look.",
+  img: "images/yozma-cnc-motor-cover.png",
+  badge: "NEW",
+  soldOut: false,
+  variants: [
+    {
+      label: "Color",
+      options: [
+        { name: "Silver", price: 0 },
+        { name: "Black", price: 0 }
+      ]
+    }
+  ]
+},
 
-  {
-    id: 12,
-    name: "Yozma Baja Light",
-    price: 0,
-    cat: "mini-ebikes",
-    desc: "Plug and Play Baja Light for a clean and easy Mini E Moto upgrade.",
-    img: "images/yozma-baja-light.png",
-    badge: "PLUG AND PLAY",
-    soldOut: false,
-    variants: []
-  },
-
-  {
-    id: 13,
-    name: "Yozma Eggrider Display",
-    price: 0,
-    cat: "mini-ebikes",
-    desc: "Compact eggRider display for a clean Mini E Moto cockpit.",
-    img: "images/yozma-eggrider.png",
-    badge: "NEW",
-    soldOut: false,
-    variants: []
-  }
+{
+  id: 12,
+  name: "Yozma Baja Light",
+  price: 34.99,
+  cat: "mini-ebikes",
+  desc: "Plug and Play Baja Light for a clean and easy Mini E Moto upgrade.",
+  img: "images/yozma-baja-light.png",
+  badge: "PLUG AND PLAY",
+  soldOut: false,
+  variants: [
+    {
+      label: "Color",
+      options: [
+        { name: "White", price: 0 },
+        { name: "Yellow", price: 0 }
+      ]
+    }
+  ]
+},
 ];
 
 
