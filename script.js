@@ -3,7 +3,7 @@ const products = [
     id: 1,
     name: "Led Bar",
     price: 26.99,
-    cat: "accessories",
+    cat: "ebike-kits",
     desc: "Bright, clean LED lighting for a sharper front-end look.",
     img: "images/surron-light.png",
     badge: "POPULAR",
@@ -22,7 +22,7 @@ const products = [
     id: 2,
     name: "CNC Throttle",
     price: 52.99,
-    cat: "controls",
+    cat: "ebike-kits",
     desc: "Precision-machined throttle with a premium, race-inspired feel.",
     img: "images/cnc-throttle.png",
     badge: "BEST SELLER",
@@ -46,7 +46,7 @@ const products = [
     id: 3,
     name: "ODI Grips",
     price: 20.99,
-    cat: "controls",
+    cat: "ebike-kits",
     desc: "Comfortable lock-on style grips for confident riding.",
     img: "images/odi-grips.png",
     badge: "",
@@ -67,7 +67,7 @@ const products = [
     id: 4,
     name: "ODI Style Front Plate",
     price: 19.99,
-    cat: "style",
+    cat: "ebike-kits",
     desc: "Race-inspired front plate for a cleaner, more aggressive look.",
     img: "images/front-plate.png",
     badge: "NEW",
@@ -86,7 +86,7 @@ const products = [
     id: 5,
     name: "CNC Foot Pegs",
     price: 55.99,
-    cat: "style",
+    cat: "ebike-kits",
     desc: "Strong CNC aluminium pegs with a secure riding platform.",
     img: "images/foot-pegs.png",
     badge: "",
@@ -109,7 +109,7 @@ const products = [
     id: 6,
     name: "Performance Seat",
     price: 59.99,
-    cat: "comfort",
+    cat: "ebike-kits",
     desc: "Comfort-focused seat for longer sessions and cleaner style.",
     img: "images/seat.png",
     badge: "",
@@ -128,7 +128,7 @@ const products = [
     id: 7,
     name: "eggRider Display",
     price: 44.99,
-    cat: "display",
+    cat: "ebike-kits",
     desc: "Compact display for a clean cockpit and easy ride data.",
     img: "images/eggrider-display.png",
     badge: "NEW",
@@ -148,7 +148,7 @@ const products = [
     id: 8,
     name: "CNC MTB Stem",
     price: 27.99,
-    cat: "controls",
+    cat: "ebike-kits",
     desc: "CNC MTB-style stem to finish a clean, tight cockpit setup.",
     img: "images/cnc-mtb-stem.png",
     badge: "",
@@ -179,12 +179,11 @@ const products = [
     id: 9,
     name: "250W Sticker",
     price: 4.99,
-    cat: "accessories",
+    cat: "ebike-kits",
     desc: "Minimal 250W sticker for an OEM-inspired finish.",
     img: "images/250w-sticker.png",
     badge: "",
     soldOut: false,
-
     variants: [
       {
         label: "Amount",
@@ -195,8 +194,63 @@ const products = [
         ]
       }
     ]
+  },
+
+  /* =========================================
+     MINI E MOTO
+     Preise erstmal auf 0 setzen.
+     Später einfach ändern.
+     ========================================= */
+
+  {
+    id: 10,
+    name: "Foot Pegs",
+    price: 0,
+    cat: "mini-ebikes",
+    desc: "CNC-style foot pegs for a clean and secure Mini E Moto setup.",
+    img: "images/foot-pegs-mini.png",
+    badge: "NEW",
+    soldOut: false,
+    variants: []
+  },
+
+  {
+    id: 11,
+    name: "Yozma CNC Motor Cover",
+    price: 0,
+    cat: "mini-ebikes",
+    desc: "CNC motor cover for a clean and upgraded Mini E Moto look.",
+    img: "images/yozma-cnc-motor-cover.png",
+    badge: "NEW",
+    soldOut: false,
+    variants: []
+  },
+
+  {
+    id: 12,
+    name: "Yozma Baja Light",
+    price: 0,
+    cat: "mini-ebikes",
+    desc: "Plug and Play Baja Light for a clean and easy Mini E Moto upgrade.",
+    img: "images/yozma-baja-light.png",
+    badge: "PLUG AND PLAY",
+    soldOut: false,
+    variants: []
+  },
+
+  {
+    id: 13,
+    name: "Yozma Eggrider Display",
+    price: 0,
+    cat: "mini-ebikes",
+    desc: "Compact eggRider display for a clean Mini E Moto cockpit.",
+    img: "images/yozma-eggrider.png",
+    badge: "NEW",
+    soldOut: false,
+    variants: []
   }
 ];
+
 
 const reviews = [
   [
@@ -221,17 +275,30 @@ const reviews = [
   ]
 ];
 
-let cart = JSON.parse(localStorage.getItem("torqCart") || "[]");
+
+let cart = JSON.parse(
+  localStorage.getItem("torqCart") || "[]"
+);
 
 let activeCat = "all";
 let search = "";
 let selectedProduct = null;
 let selectedOptions = [];
 
+
 const $ = id => document.getElementById(id);
 
+
 const euro = number =>
-  "€" + Number(number).toFixed(2);function render() {
+  "€" + Number(number).toFixed(2);
+
+
+/* =========================================
+   PRODUCTS RENDER
+   ========================================= */
+
+function render() {
+
   const list = products.filter(p =>
     (activeCat === "all" || p.cat === activeCat) &&
     (p.name + " " + p.desc)
@@ -239,12 +306,16 @@ const euro = number =>
       .includes(search.toLowerCase())
   );
 
+
   $("grid").innerHTML = list.map(p => `
+
     <article
       class="product ${p.soldOut ? "sold-out" : ""}"
       onclick="openProduct(${p.id})"
     >
+
       <div class="product-image">
+
         ${
           p.badge
             ? `<span class="badge">${p.badge}</span>`
@@ -256,14 +327,27 @@ const euro = number =>
           alt="${p.name}"
           onerror="this.style.display='none'"
         >
+
       </div>
 
+
       <div class="info">
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
+
+        <h3>
+          ${p.name}
+        </h3>
+
+        <p>
+          ${p.desc}
+        </p>
+
 
         <div class="row">
-          <span class="price">${euro(p.price)}</span>
+
+          <span class="price">
+            ${euro(p.price)}
+          </span>
+
 
           <button
             class="add ${p.soldOut ? "sold" : ""}"
@@ -272,59 +356,94 @@ const euro = number =>
               ${p.soldOut ? "" : `add(${p.id})`}
             "
           >
+
             ${p.soldOut ? "SOLD OUT" : "ADD TO CART"}
+
           </button>
+
         </div>
+
       </div>
+
     </article>
+
   `).join("");
+
 
   $("noResults").style.display =
     list.length ? "none" : "block";
 }
 
 
+/* =========================================
+   SAVE CART
+   ========================================= */
+
 function save() {
+
   localStorage.setItem(
     "torqCart",
     JSON.stringify(cart)
   );
+
 }
 
+
+/* =========================================
+   ADD TO CART
+   ========================================= */
 
 function add(
   id,
   variant = "Default",
   price = null
 ) {
-  const p = products.find(x => x.id === id);
+
+  const p =
+    products.find(x => x.id === id);
+
 
   if (!p || p.soldOut) {
-    return toast("This product is sold out");
+
+    return toast(
+      "This product is sold out"
+    );
+
   }
+
 
   const finalPrice =
     price !== null
       ? Number(price)
       : Number(p.price);
 
+
   const key =
     id + "|" + variant;
+
 
   const existing =
     cart.find(i => i.key === key);
 
+
   if (existing) {
+
     existing.qty++;
+
   } else {
+
     cart.push({
+
       key: key,
       id: id,
       qty: 1,
       variant: variant,
       price: finalPrice
+
     });
+
   }
+
 
   save();
   renderCart();
@@ -333,34 +452,57 @@ function add(
 }
 
 
+/* =========================================
+   QUANTITY
+   ========================================= */
+
 function qty(key, difference) {
+
   const item =
     cart.find(i => i.key === key);
 
+
   if (!item) return;
+
 
   item.qty += difference;
 
+
   if (item.qty < 1) {
-    cart = cart.filter(
-      i => i.key !== key
-    );
+
+    cart =
+      cart.filter(
+        i => i.key !== key
+      );
+
   }
 
+
   save();
   renderCart();
 }
 
+
+/* =========================================
+   REMOVE ITEM
+   ========================================= */
 
 function removeItem(key) {
-  cart = cart.filter(
-    i => i.key !== key
-  );
+
+  cart =
+    cart.filter(
+      i => i.key !== key
+    );
+
 
   save();
   renderCart();
 }
 
+
+/* =========================================
+   CART
+   ========================================= */
 
 function renderCart() {
 
@@ -370,6 +512,7 @@ function renderCart() {
         sum + item.qty,
       0
     );
+
 
   $("cartItems").innerHTML =
     cart.length
@@ -381,12 +524,15 @@ function renderCart() {
                 product.id === item.id
             );
 
+
           const itemPrice =
             Number(
               item.price ?? p.price
             );
 
+
           return `
+
             <div class="cart-item">
 
               <div>
@@ -402,6 +548,7 @@ function renderCart() {
                   each
                 </p>
 
+
                 <div class="controls">
 
                   <button
@@ -413,9 +560,11 @@ function renderCart() {
                     −
                   </button>
 
+
                   <span>
                     ${item.qty}
                   </span>
+
 
                   <button
                     class="qty"
@@ -425,6 +574,7 @@ function renderCart() {
                   >
                     +
                   </button>
+
 
                   <button
                     class="remove"
@@ -439,26 +589,36 @@ function renderCart() {
 
               </div>
 
+
               <span class="item-total">
+
                 ${euro(
                   itemPrice *
                   item.qty
                 )}
+
               </span>
 
             </div>
+
           `;
 
         }).join("")
 
       : `
+
         <div class="empty">
+
           Your cart is empty.
+
           <br>
           <br>
+
           Add some Torq parts
           to get started.
+
         </div>
+
       `;
 
 
@@ -472,10 +632,12 @@ function renderCart() {
               product.id === item.id
           );
 
+
         const itemPrice =
           Number(
             item.price ?? p.price
           );
+
 
         return (
           sum +
@@ -493,10 +655,16 @@ function renderCart() {
 }
 
 
+/* =========================================
+   CART OPEN / CLOSE
+   ========================================= */
+
 function openCart() {
+
   $("drawer")
     .classList
     .add("open");
+
 
   $("overlay")
     .classList
@@ -505,9 +673,11 @@ function openCart() {
 
 
 function closeCart() {
+
   $("drawer")
     .classList
     .remove("open");
+
 
   $("overlay")
     .classList
@@ -515,32 +685,30 @@ function closeCart() {
 }
 
 
+/* =========================================
+   VARIANT PRICE
+   ========================================= */
+
 function calculateVariantPrice() {
 
   if (!selectedProduct) {
+
     return 0;
+
   }
+
 
   if (
     !selectedOptions ||
     selectedOptions.length === 0
   ) {
+
     return Number(
       selectedProduct.price
     );
+
   }
 
-
-  /*
-    Bei einer Variante mit eigenem Preis
-    wird dieser Preis verwendet.
-
-    Beispiel:
-
-    2x = 4.99
-    4x = 8.99
-    6x = 11.99
-  */
 
   let price =
     Number(
@@ -548,11 +716,6 @@ function calculateVariantPrice() {
       selectedProduct.price
     );
 
-
-  /*
-    Bei weiteren Varianten
-    können Aufpreise verwendet werden.
-  */
 
   for (
     let i = 1;
@@ -571,10 +734,16 @@ function calculateVariantPrice() {
 }
 
 
+/* =========================================
+   UPDATE PRODUCT VARIANT
+   ========================================= */
+
 function updateProductVariant() {
 
   if (!selectedProduct) {
+
     return;
+
   }
 
 
@@ -585,12 +754,6 @@ function updateProductVariant() {
   $("modalPrice").textContent =
     euro(price);
 
-
-  /*
-    Falls eine ausgewählte Variante
-    ein eigenes Bild besitzt,
-    wird dieses Bild angezeigt.
-  */
 
   const imageOption =
     selectedOptions.find(
@@ -628,30 +791,40 @@ function updateProductVariant() {
 
     $("modalAdd").disabled =
       false;
+
   }
-}function openProduct(id) {
+}
+
+
+/* =========================================
+   OPEN PRODUCT
+   ========================================= */
+
+function openProduct(id) {
 
   selectedProduct =
-    products.find(p => p.id === id);
+    products.find(
+      p => p.id === id
+    );
 
-  const p = selectedProduct;
+
+  const p =
+    selectedProduct;
+
 
   if (!p) return;
 
 
-  /*
-    Standardmäßig wird jeweils
-    die erste Variante ausgewählt.
-  */
-
   selectedOptions =
     (p.variants || []).map(
-      variant => variant.options[0]
+      variant =>
+        variant.options[0]
     );
 
 
   $("modalImage").src =
     p.img;
+
 
   $("modalImage").alt =
     p.name;
@@ -660,8 +833,11 @@ function updateProductVariant() {
   $("modalBadge").textContent =
     p.badge;
 
+
   $("modalBadge").style.display =
-    p.badge ? "block" : "none";
+    p.badge
+      ? "block"
+      : "none";
 
 
   $("modalCategory").textContent =
@@ -675,10 +851,6 @@ function updateProductVariant() {
   $("modalDescription").textContent =
     p.desc;
 
-
-  /*
-    Varianten erstellen
-  */
 
   $("variantArea").innerHTML =
     "";
@@ -694,6 +866,7 @@ function updateProductVariant() {
             "div"
           );
 
+
         group.className =
           "variant-group";
 
@@ -703,6 +876,7 @@ function updateProductVariant() {
             "label"
           );
 
+
         label.textContent =
           variant.label;
 
@@ -711,6 +885,7 @@ function updateProductVariant() {
           document.createElement(
             "div"
           );
+
 
         options.className =
           "variant-options";
@@ -724,29 +899,14 @@ function updateProductVariant() {
                 "button"
               );
 
+
             button.type =
               "button";
+
 
             button.className =
               "variant";
 
-
-            /*
-              GANZ WICHTIG:
-
-              option ist ein Objekt:
-
-              {
-                name: "2x",
-                price: 4.99
-              }
-
-              Deshalb müssen wir
-              option.name anzeigen.
-
-              Dadurch verschwindet
-              [object Object].
-            */
 
             button.textContent =
               option.name;
@@ -754,6 +914,7 @@ function updateProductVariant() {
 
             button.dataset.group =
               groupIndex;
+
 
             button.dataset.value =
               option.name;
@@ -771,11 +932,6 @@ function updateProductVariant() {
             button.onclick =
               () => {
 
-                /*
-                  Alle anderen Buttons
-                  dieser Gruppe abwählen
-                */
-
                 options
                   .querySelectorAll(
                     ".variant"
@@ -789,28 +945,15 @@ function updateProductVariant() {
                   });
 
 
-                /*
-                  Aktuellen Button auswählen
-                */
-
                 button.classList.add(
                   "selected"
                 );
 
 
-                /*
-                  Auswahl speichern
-                */
-
                 selectedOptions[
                   groupIndex
                 ] = option;
 
-
-                /*
-                  Preis und Bild
-                  aktualisieren
-                */
 
                 updateProductVariant();
 
@@ -829,13 +972,16 @@ function updateProductVariant() {
           label
         );
 
+
         group.appendChild(
           options
         );
 
 
         $("variantArea")
-          .appendChild(group);
+          .appendChild(
+            group
+          );
 
       }
     );
@@ -843,22 +989,16 @@ function updateProductVariant() {
   }
 
 
-  /*
-    Startpreis anzeigen
-  */
-
   updateProductVariant();
 
-
-  /*
-    Add-to-cart Button
-  */
 
   $("modalAdd").onclick =
     () => {
 
       if (p.soldOut) {
+
         return;
+
       }
 
 
@@ -897,6 +1037,10 @@ function updateProductVariant() {
 }
 
 
+/* =========================================
+   CLOSE MODAL
+   ========================================= */
+
 function closeModal(id) {
 
   $(id)
@@ -906,13 +1050,19 @@ function closeModal(id) {
 }
 
 
+/* =========================================
+   TOAST
+   ========================================= */
+
 function toast(message) {
 
   const element =
     $("toast");
 
+
   element.textContent =
     message;
+
 
   element.classList.add(
     "show"
@@ -928,6 +1078,10 @@ function toast(message) {
   );
 }
 
+
+/* =========================================
+   ORDER TEXT
+   ========================================= */
 
 function orderText() {
 
@@ -996,6 +1150,10 @@ Address:
 }
 
 
+/* =========================================
+   REVIEWS
+   ========================================= */
+
 function renderReviews() {
 
   const track =
@@ -1038,6 +1196,10 @@ function renderReviews() {
 }
 
 
+/* =========================================
+   ACCOUNT
+   ========================================= */
+
 function renderAccount() {
 
   const account =
@@ -1074,6 +1236,7 @@ function renderAccount() {
           ${account.email}
         </p>
 
+
         <button
           class="small-btn"
           onclick="
@@ -1108,9 +1271,9 @@ function renderAccount() {
 }
 
 
-/*
-  CART
-*/
+/* =========================================
+   CART BUTTONS
+   ========================================= */
 
 $("openCart").onclick =
   openCart;
@@ -1124,9 +1287,9 @@ $("overlay").onclick =
   closeCart;
 
 
-/*
-  ACCOUNT
-*/
+/* =========================================
+   ACCOUNT BUTTON
+   ========================================= */
 
 $("openAccount").onclick =
   () => {
@@ -1135,14 +1298,15 @@ $("openAccount").onclick =
       .classList
       .add("show");
 
+
     renderAccount();
 
   };
 
 
-/*
-  MODAL CLOSE BUTTONS
-*/
+/* =========================================
+   MODAL CLOSE BUTTONS
+   ========================================= */
 
 document
   .querySelectorAll(
@@ -1159,10 +1323,9 @@ document
   });
 
 
-/*
-  Modal schließen,
-  wenn man außerhalb klickt
-*/
+/* =========================================
+   MODAL OUTSIDE CLICK
+   ========================================= */
 
 document
   .querySelectorAll(
@@ -1190,9 +1353,9 @@ document
   });
 
 
-/*
-  SEARCH
-*/
+/* =========================================
+   SEARCH
+   ========================================= */
 
 $("search").oninput =
   event => {
@@ -1200,34 +1363,99 @@ $("search").oninput =
     search =
       event.target.value;
 
+
     render();
 
   };
 
 
+/* =========================================
+   CATEGORY FILTER
+   ========================================= */
+
 /*
-  FILTER
+   Deine vorhandenen Filter-Buttons
+   werden automatisch zu:
+
+   ALL PRODUCTS
+   EBIKE-KITS
+   MINI E MOTO
 */
 
-document
-  .querySelectorAll(
-    ".filter"
+const filterButtons =
+  Array.from(
+    document.querySelectorAll(
+      ".filter"
+    )
+  );
+
+
+const categoryButtons = [
+
+  {
+    label: "ALL PRODUCTS",
+    cat: "all"
+  },
+
+  {
+    label: "EBIKE-KITS",
+    cat: "ebike-kits"
+  },
+
+  {
+    label: "MINI E MOTO",
+    cat: "mini-ebikes"
+  }
+
+];
+
+
+filterButtons.forEach(
+  (button, index) => {
+
+    if (
+      index <
+      categoryButtons.length
+    ) {
+
+      button.textContent =
+        categoryButtons[index].label;
+
+
+      button.dataset.cat =
+        categoryButtons[index].cat;
+
+
+      button.style.display =
+        "";
+
+    } else {
+
+      button.style.display =
+        "none";
+
+    }
+
+  }
+);
+
+
+filterButtons
+  .slice(
+    0,
+    categoryButtons.length
   )
   .forEach(button => {
 
     button.onclick =
       () => {
 
-        document
-          .querySelectorAll(
-            ".filter"
-          )
-          .forEach(
-            filter =>
-              filter.classList
-                .remove(
-                  "active"
-                )
+        filterButtons
+          .forEach(filter =>
+            filter.classList
+              .remove(
+                "active"
+              )
           );
 
 
@@ -1248,8 +1476,25 @@ document
 
 
 /*
-  WHATSAPP
+   WICHTIG:
+   Beim Start ALLE Produkte anzeigen.
 */
+
+if (filterButtons.length) {
+
+  filterButtons[0]
+    .classList
+    .add("active");
+
+}
+
+
+activeCat = "all";
+
+
+/* =========================================
+   WHATSAPP
+   ========================================= */
 
 $("whatsapp").onclick =
   () => {
@@ -1266,7 +1511,7 @@ $("whatsapp").onclick =
     /*
       HIER DEINE ECHTE
       WhatsApp Nummer eintragen.
-      
+
       Beispiel:
       4917612345678
     */
@@ -1288,9 +1533,9 @@ $("whatsapp").onclick =
   };
 
 
-/*
-  EMAIL
-*/
+/* =========================================
+   EMAIL
+   ========================================= */
 
 $("email").onclick =
   () => {
@@ -1318,9 +1563,9 @@ $("email").onclick =
   };
 
 
-/*
-  ACCOUNT ERSTELLEN
-*/
+/* =========================================
+   ACCOUNT CREATE
+   ========================================= */
 
 $("accountForm").onsubmit =
   event => {
@@ -1352,9 +1597,9 @@ $("accountForm").onsubmit =
   };
 
 
-/*
-  WEBSITE STARTEN
-*/
+/* =========================================
+   START WEBSITE
+   ========================================= */
 
 render();
 
