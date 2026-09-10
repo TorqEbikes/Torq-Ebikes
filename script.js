@@ -5,14 +5,14 @@ const products = [
     price: 26.99,
     cat: "ebike-kits",
     desc: "Bright, clean LED lighting for a sharper front-end look.",
-    img: "images/surron-light.png",
+    img: "images/led-bar.png",
     badge: "POPULAR",
     soldOut: false,
     variants: [
       {
         label: "Finish",
         options: [
-          { name: "Black", price: 26.99 }
+          { name: "Black", price: 26.99, image: "images/led-bar-black.png" }
         ]
       }
     ]
@@ -31,12 +31,12 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Chrome", price: 52.99 },
-          { name: "Black", price: 52.99 },
-          { name: "Blue", price: 52.99 },
-          { name: "Purple", price: 52.99 },
-          { name: "Red", price: 52.99 },
-          { name: "Gold", price: 52.99 }
+          { name: "Chrome", price: 52.99, image: "images/cnc-throttle-chrome.png" },
+          { name: "Black", price: 52.99, image: "images/cnc-throttle-black.png" },
+          { name: "Blue", price: 52.99, image: "images/cnc-throttle-blue.png" },
+          { name: "Purple", price: 52.99, image: "images/cnc-throttle-purple.png" },
+          { name: "Red", price: 52.99, image: "images/cnc-throttle-red.png" },
+          { name: "Gold", price: 52.99, image: "images/cnc-throttle-gold.png" }
         ]
       }
     ]
@@ -55,9 +55,9 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Black", price: 20.99 },
-          { name: "Grey", price: 20.99 },
-          { name: "Red", price: 20.99 }
+          { name: "Black", price: 20.99, image: "images/odi-grips-black.png" },
+          { name: "Grey", price: 20.99, image: "images/odi-grips-grey.png" },
+          { name: "Red", price: 20.99, image: "images/odi-grips-red.png" }
         ]
       }
     ]
@@ -76,7 +76,7 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Black", price: 19.99 }
+          { name: "Black", price: 19.99, image: "images/front-plate-black.png" }
         ]
       }
     ]
@@ -95,11 +95,11 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Black", price: 55.99 },
-          { name: "Silver", price: 55.99 },
-          { name: "Red", price: 55.99 },
-          { name: "Gold", price: 55.99 },
-          { name: "Blue", price: 55.99 }
+          { name: "Black", price: 55.99, image: "images/foot-pegs-black.png" },
+          { name: "Silver", price: 55.99, image: "images/foot-pegs-silver.png" },
+          { name: "Red", price: 55.99, image: "images/foot-pegs-red.png" },
+          { name: "Gold", price: 55.99, image: "images/foot-pegs-gold.png" },
+          { name: "Blue", price: 55.99, image: "images/foot-pegs-blue.png" }
         ]
       }
     ]
@@ -118,7 +118,7 @@ const products = [
       {
         label: "Cover",
         options: [
-          { name: "Black", price: 59.99 }
+          { name: "Black", price: 59.99, image: "images/seat-black.png" }
         ]
       }
     ]
@@ -128,8 +128,7 @@ const products = [
     id: 7,
     name: "eggRider Display",
     price: 44.99,
-    cat: "ebike-kits",
-    cat2: "mini-ebikes",
+    cat: ["ebike-kits", "mini-ebikes"],
     desc: "Compact display for a clean cockpit and easy ride data.",
     img: "images/eggrider-display.png",
     badge: "NEW",
@@ -138,8 +137,8 @@ const products = [
       {
         label: "Version",
         options: [
-          { name: "SM Plug (E-Kit)", price: 44.99 },
-          { name: "WP Plug (Yozma)", price: 44.99 }
+          { name: "SM Plug (E-Kit)", price: 44.99, image: "images/eggrider-sm-plug.png" },
+          { name: "WP Plug (Yozma)", price: 44.99, image: "images/eggrider-wp-plug.png" }
         ]
       }
     ]
@@ -158,12 +157,12 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Black", price: 27.99 },
-          { name: "Silver", price: 27.99 },
-          { name: "Red", price: 27.99 },
-          { name: "Purple", price: 27.99 },
-          { name: "Colorful", price: 27.99 },
-          { name: "Orange", price: 27.99 }
+          { name: "Black", price: 27.99, image: "images/cnc-mtb-stem-black.png" },
+          { name: "Silver", price: 27.99, image: "images/cnc-mtb-stem-silver.png" },
+          { name: "Red", price: 27.99, image: "images/cnc-mtb-stem-red.png" },
+          { name: "Purple", price: 27.99, image: "images/cnc-mtb-stem-purple.png" },
+          { name: "Colorful", price: 27.99, image: "images/cnc-mtb-stem-colorful.png" },
+          { name: "Orange", price: 27.99, image: "images/cnc-mtb-stem-orange.png" }
         ]
       },
       {
@@ -189,79 +188,73 @@ const products = [
       {
         label: "Amount",
         options: [
-          { name: "2x", price: 3.99 },
-          { name: "4x", price: 4.99 },
-          { name: "6x", price: 6.99 }
+          { name: "2x", price: 3.99, image: "images/250w-sticker-2x.png" },
+          { name: "4x", price: 4.99, image: "images/250w-sticker-4x.png" },
+          { name: "6x", price: 6.99, image: "images/250w-sticker-6x.png" }
         ]
       }
     ]
   },
 
-  /* =========================================
-     MINI E MOTO
-     Preise erstmal auf 0 setzen.
-     Später einfach ändern.
-     ========================================= */
+  {
+    id: 10,
+    name: "Titanium Foot Pegs",
+    price: 64.99,
+    cat: "mini-ebikes",
+    desc: "CNC-style foot pegs for a clean and secure Mini E Moto setup.",
+    img: "images/foot-pegs-mini.png",
+    badge: "NEW",
+    soldOut: false,
+    variants: [
+      {
+        label: "Color",
+        options: [
+          { name: "Silver", price: 64.99, image: "images/foot-pegs-mini-silver.png" },
+          { name: "Black", price: 64.99, image: "images/foot-pegs-mini-black.png" }
+        ]
+      }
+    ]
+  },
 
   {
-  id: 10,
-  name: "Titanium Foot Pegs",
-  price: 64.99,
-  cat: "mini-ebikes",
-  desc: "CNC-style foot pegs for a clean and secure Mini E Moto setup.",
-  img: "images/foot-pegs-mini.png",
-  badge: "NEW",
-  soldOut: false,
-  variants: [
-    {
-      label: "Color",
-      options: [
-        { name: "Silver", price: 0 },
-        { name: "Black", price: 0 }
-      ]
-    }
-  ]
-},
+    id: 11,
+    name: "Yozma CNC Motor Cover",
+    price: 37.99,
+    cat: "mini-ebikes",
+    desc: "CNC motor cover for a clean and upgraded Mini E Moto look.",
+    img: "images/yozma-cnc-motor-cover.png",
+    badge: "NEW",
+    soldOut: false,
+    variants: [
+      {
+        label: "Color",
+        options: [
+          { name: "Silver", price: 37.99, image: "images/yozma-cnc-motor-cover-silver.png" },
+          { name: "Black", price: 37.99, image: "images/yozma-cnc-motor-cover-black.png" }
+        ]
+      }
+    ]
+  },
 
-{
-  id: 11,
-  name: "Yozma CNC Motor Cover",
-  price: 37.99,
-  cat: "mini-ebikes",
-  desc: "CNC motor cover for a clean and upgraded Mini E Moto look.",
-  img: "images/yozma-cnc-motor-cover.png",
-  badge: "NEW",
-  soldOut: false,
-  variants: [
-    {
-      label: "Color",
-      options: [
-        { name: "Silver", price: 0 },
-        { name: "Black", price: 0 }
-      ]
-    }
-  ]
-},
-
-{
-  id: 12,
-  name: "Yozma Baja Light",
-  price: 34.99,
-  cat: "mini-ebikes",
-  desc: "Plug and Play Baja Light for a clean and easy Mini E Moto upgrade.",
-  img: "images/yozma-baja-light.png",
-  badge: "PLUG AND PLAY",
-  soldOut: false,
-  variants: [
-    {
-      label: "Color",
-      options: [
-        { name: "White", price: 0 },
-        { name: "Yellow", price: 0 }
-      ]
-    }
-  ]
-},
+  {
+    id: 12,
+    name: "Yozma Baja Light",
+    price: 34.99,
+    cat: "mini-ebikes",
+    desc: "Plug and Play Baja Light for a clean and easy Mini E Moto upgrade.",
+    img: "images/yozma-baja-light.png",
+    badge: "PLUG AND PLAY",
+    soldOut: false,
+    variants: [
+      {
+        label: "Color",
+        options: [
+          { name: "White", price: 34.99, image: "images/yozma-baja-light-white.png" },
+          { name: "Yellow", price: 34.99, image: "images/yozma-baja-light-yellow.png" }
+        ]
+      }
+    ]
+  },
 ];
 
 
@@ -754,56 +747,36 @@ function calculateVariantPrice() {
 function updateProductVariant() {
 
   if (!selectedProduct) {
-
     return;
-
   }
 
+  const price = calculateVariantPrice();
 
-  const price =
-    calculateVariantPrice();
+  $("modalPrice").textContent = euro(price);
 
-
-  $("modalPrice").textContent =
-    euro(price);
-
-
-  const imageOption =
-    selectedOptions.find(
-      option =>
-        option &&
-        option.image
-    );
-
+  // Bild der ausgewählten Variante anzeigen
+  const imageOption = selectedOptions.find(
+    option => option && option.image
+  );
 
   $("modalImage").src =
-    imageOption &&
-    imageOption.image
+    imageOption && imageOption.image
       ? imageOption.image
       : selectedProduct.img;
 
+  $("modalImage").alt = selectedProduct.name;
 
   if (selectedProduct.soldOut) {
 
-    $("modalAdd").textContent =
-      "SOLD OUT";
-
-    $("modalAdd").className =
-      "modal-add sold";
-
-    $("modalAdd").disabled =
-      true;
+    $("modalAdd").textContent = "SOLD OUT";
+    $("modalAdd").className = "modal-add sold";
+    $("modalAdd").disabled = true;
 
   } else {
 
-    $("modalAdd").textContent =
-      "ADD TO CART";
-
-    $("modalAdd").className =
-      "modal-add";
-
-    $("modalAdd").disabled =
-      false;
+    $("modalAdd").textContent = "ADD TO CART";
+    $("modalAdd").className = "modal-add";
+    $("modalAdd").disabled = false;
 
   }
 }
