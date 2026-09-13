@@ -12,7 +12,11 @@ const products = [
       {
         label: "Finish",
         options: [
-          { name: "Black", price: 26.99, image: "images/led-bar-black.png" }
+          {
+            name: "Black",
+            price: 26.99,
+            image: "images/led-bar-black.png"
+          }
         ]
       }
     ]
@@ -76,7 +80,11 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Black", price: 19.99, image: "images/front-plate-black.png" }
+          {
+            name: "Black",
+            price: 19.99,
+            image: "images/front-plate-black.png"
+          }
         ]
       }
     ]
@@ -118,7 +126,11 @@ const products = [
       {
         label: "Cover",
         options: [
-          { name: "Black", price: 59.99, image: "images/seat-black.png" }
+          {
+            name: "Black",
+            price: 59.99,
+            image: "images/seat-black.png"
+          }
         ]
       }
     ]
@@ -137,8 +149,16 @@ const products = [
       {
         label: "Version",
         options: [
-          { name: "SM Plug (E-Kit)", price: 44.99, image: "images/eggrider-sm-plug.png" },
-          { name: "WP Plug (Yozma)", price: 44.99, image: "images/eggrider-wp-plug.png" }
+          {
+            name: "SM Plug (E-Kit)",
+            price: 44.99,
+            image: "images/eggrider-sm-plug.png"
+          },
+          {
+            name: "WP Plug (Yozma)",
+            price: 44.99,
+            image: "images/eggrider-wp-plug.png"
+          }
         ]
       }
     ]
@@ -209,8 +229,16 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Silver", price: 64.99, image: "images/foot-pegs-mini-silver.png" },
-          { name: "Black", price: 64.99, image: "images/foot-pegs-mini-black.png" }
+          {
+            name: "Silver",
+            price: 64.99,
+            image: "images/foot-pegs-mini-silver.png"
+          },
+          {
+            name: "Black",
+            price: 64.99,
+            image: "images/foot-pegs-mini-black.png"
+          }
         ]
       }
     ]
@@ -229,8 +257,16 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "Silver", price: 37.99, image: "images/yozma-cnc-motor-cover-silver.png" },
-          { name: "Black", price: 37.99, image: "images/yozma-cnc-motor-cover-black.png" }
+          {
+            name: "Silver",
+            price: 37.99,
+            image: "images/yozma-cnc-motor-cover-silver.png"
+          },
+          {
+            name: "Black",
+            price: 37.99,
+            image: "images/yozma-cnc-motor-cover-black.png"
+          }
         ]
       }
     ]
@@ -249,12 +285,20 @@ const products = [
       {
         label: "Color",
         options: [
-          { name: "White", price: 34.99, image: "images/yozma-baja-light-white.png" },
-          { name: "Yellow", price: 34.99, image: "images/yozma-baja-light-yellow.png" }
+          {
+            name: "White",
+            price: 34.99,
+            image: "images/yozma-baja-light-white.png"
+          },
+          {
+            name: "Yellow",
+            price: 34.99,
+            image: "images/yozma-baja-light-yellow.png"
+          }
         ]
       }
     ]
-  },
+  }
 ];
 
 
@@ -300,13 +344,31 @@ const euro = number =>
 
 
 /* =========================================
+   CATEGORY MATCH
+   ========================================= */
+
+function productMatchesCategory(product, category) {
+
+  if (category === "all") {
+    return true;
+  }
+
+  if (Array.isArray(product.cat)) {
+    return product.cat.includes(category);
+  }
+
+  return product.cat === category;
+}
+
+
+/* =========================================
    PRODUCTS RENDER
    ========================================= */
 
 function render() {
 
   const list = products.filter(p =>
-    (activeCat === "all" || p.cat === activeCat) &&
+    productMatchesCategory(p, activeCat) &&
     (p.name + " " + p.desc)
       .toLowerCase()
       .includes(search.toLowerCase())
@@ -336,24 +398,17 @@ function render() {
 
       </div>
 
-
       <div class="info">
 
-        <h3>
-          ${p.name}
-        </h3>
+        <h3>${p.name}</h3>
 
-        <p>
-          ${p.desc}
-        </p>
-
+        <p>${p.desc}</p>
 
         <div class="row">
 
           <span class="price">
             ${euro(p.price)}
           </span>
-
 
           <button
             class="add ${p.soldOut ? "sold" : ""}"
@@ -362,9 +417,7 @@ function render() {
               ${p.soldOut ? "" : `add(${p.id})`}
             "
           >
-
             ${p.soldOut ? "SOLD OUT" : "ADD TO CART"}
-
           </button>
 
         </div>
@@ -440,10 +493,10 @@ function add(
 
     cart.push({
 
-      key: key,
-      id: id,
+      key,
+      id,
       qty: 1,
-      variant: variant,
+      variant,
       price: finalPrice
 
     });
@@ -531,6 +584,9 @@ function renderCart() {
             );
 
 
+          if (!p) return "";
+
+
           const itemPrice =
             Number(
               item.price ?? p.price
@@ -543,9 +599,7 @@ function renderCart() {
 
               <div>
 
-                <h4>
-                  ${p.name}
-                </h4>
+                <h4>${p.name}</h4>
 
                 <p>
                   ${item.variant}
@@ -553,7 +607,6 @@ function renderCart() {
                   ${euro(itemPrice)}
                   each
                 </p>
-
 
                 <div class="controls">
 
@@ -566,11 +619,7 @@ function renderCart() {
                     −
                   </button>
 
-
-                  <span>
-                    ${item.qty}
-                  </span>
-
+                  <span>${item.qty}</span>
 
                   <button
                     class="qty"
@@ -580,7 +629,6 @@ function renderCart() {
                   >
                     +
                   </button>
-
 
                   <button
                     class="remove"
@@ -595,14 +643,8 @@ function renderCart() {
 
               </div>
 
-
               <span class="item-total">
-
-                ${euro(
-                  itemPrice *
-                  item.qty
-                )}
-
+                ${euro(itemPrice * item.qty)}
               </span>
 
             </div>
@@ -617,8 +659,7 @@ function renderCart() {
 
           Your cart is empty.
 
-          <br>
-          <br>
+          <br><br>
 
           Add some Torq parts
           to get started.
@@ -637,6 +678,9 @@ function renderCart() {
             product =>
               product.id === item.id
           );
+
+
+        if (!p) return sum;
 
 
         const itemPrice =
@@ -698,9 +742,7 @@ function closeCart() {
 function calculateVariantPrice() {
 
   if (!selectedProduct) {
-
     return 0;
-
   }
 
 
@@ -750,33 +792,53 @@ function updateProductVariant() {
     return;
   }
 
-  const price = calculateVariantPrice();
 
-  $("modalPrice").textContent = euro(price);
+  const price =
+    calculateVariantPrice();
 
-  // Bild der ausgewählten Variante anzeigen
-  const imageOption = selectedOptions.find(
-    option => option && option.image
-  );
+
+  $("modalPrice").textContent =
+    euro(price);
+
+
+  const imageOption =
+    selectedOptions.find(
+      option =>
+        option &&
+        option.image
+    );
+
 
   $("modalImage").src =
-    imageOption && imageOption.image
-      ? imageOption.image
-      : selectedProduct.img;
+    imageOption?.image ||
+    selectedProduct.img;
 
-  $("modalImage").alt = selectedProduct.name;
+
+  $("modalImage").alt =
+    selectedProduct.name;
+
 
   if (selectedProduct.soldOut) {
 
-    $("modalAdd").textContent = "SOLD OUT";
-    $("modalAdd").className = "modal-add sold";
-    $("modalAdd").disabled = true;
+    $("modalAdd").textContent =
+      "SOLD OUT";
+
+    $("modalAdd").className =
+      "modal-add sold";
+
+    $("modalAdd").disabled =
+      true;
 
   } else {
 
-    $("modalAdd").textContent = "ADD TO CART";
-    $("modalAdd").className = "modal-add";
-    $("modalAdd").disabled = false;
+    $("modalAdd").textContent =
+      "ADD TO CART";
+
+    $("modalAdd").className =
+      "modal-add";
+
+    $("modalAdd").disabled =
+      false;
 
   }
 }
@@ -808,14 +870,6 @@ function openProduct(id) {
     );
 
 
-  $("modalImage").src =
-    p.img;
-
-
-  $("modalImage").alt =
-    p.name;
-
-
   $("modalBadge").textContent =
     p.badge;
 
@@ -827,7 +881,16 @@ function openProduct(id) {
 
 
   $("modalCategory").textContent =
-    p.cat.toUpperCase();
+    (Array.isArray(p.cat)
+      ? p.cat
+      : [p.cat]
+    )
+      .map(cat =>
+        cat
+          .replace("-", " ")
+          .toUpperCase()
+      )
+      .join(" / ");
 
 
   $("modalName").textContent =
@@ -848,9 +911,7 @@ function openProduct(id) {
       (variant, groupIndex) => {
 
         const group =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
 
 
         group.className =
@@ -858,9 +919,7 @@ function openProduct(id) {
 
 
         const label =
-          document.createElement(
-            "label"
-          );
+          document.createElement("label");
 
 
         label.textContent =
@@ -868,9 +927,7 @@ function openProduct(id) {
 
 
         const options =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
 
 
         options.className =
@@ -881,9 +938,7 @@ function openProduct(id) {
           (option, optionIndex) => {
 
             const button =
-              document.createElement(
-                "button"
-              );
+              document.createElement("button");
 
 
             button.type =
@@ -895,14 +950,6 @@ function openProduct(id) {
 
 
             button.textContent =
-              option.name;
-
-
-            button.dataset.group =
-              groupIndex;
-
-
-            button.dataset.value =
               option.name;
 
 
@@ -922,13 +969,11 @@ function openProduct(id) {
                   .querySelectorAll(
                     ".variant"
                   )
-                  .forEach(btn => {
-
+                  .forEach(btn =>
                     btn.classList.remove(
                       "selected"
-                    );
-
-                  });
+                    )
+                  );
 
 
                 button.classList.add(
@@ -954,20 +999,12 @@ function openProduct(id) {
         );
 
 
-        group.appendChild(
-          label
-        );
-
-
-        group.appendChild(
-          options
-        );
+        group.appendChild(label);
+        group.appendChild(options);
 
 
         $("variantArea")
-          .appendChild(
-            group
-          );
+          .appendChild(group);
 
       }
     );
@@ -982,9 +1019,7 @@ function openProduct(id) {
     () => {
 
       if (p.soldOut) {
-
         return;
-
       }
 
 
@@ -1066,10 +1101,47 @@ function toast(message) {
 
 
 /* =========================================
+   ORDER TOTAL
+   ========================================= */
+
+function getCartTotal() {
+
+  return cart.reduce(
+    (sum, item) => {
+
+      const p =
+        products.find(
+          product =>
+            product.id === item.id
+        );
+
+
+      if (!p) return sum;
+
+
+      const price =
+        Number(
+          item.price ?? p.price
+        );
+
+
+      return (
+        sum +
+        price *
+        item.qty
+      );
+
+    },
+    0
+  );
+}
+
+
+/* =========================================
    ORDER TEXT
    ========================================= */
 
-function orderText() {
+function orderText(customer = {}) {
 
   const lines =
     cart.map(item => {
@@ -1087,52 +1159,137 @@ function orderText() {
         );
 
 
-      return `
-• ${p.name} x${item.qty} — ${item.variant} — ${euro(
+      return `• ${p.name} x${item.qty} — ${item.variant} — ${euro(
         itemPrice * item.qty
       )}`;
 
     });
 
 
-  const total =
-    cart.reduce(
-      (sum, item) => {
-
-        const p =
-          products.find(
-            product =>
-              product.id === item.id
-          );
-
-
-        const itemPrice =
-          Number(
-            item.price ?? p.price
-          );
-
-
-        return (
-          sum +
-          itemPrice *
-          item.qty
-        );
-
-      },
-      0
-    );
-
-
   return `Hi TorqEbikes! I would like to order:
 
 ${lines.join("\n")}
 
-Subtotal: ${euro(total)}
-Shipping calculated at checkout.
+Subtotal: ${euro(getCartTotal())}
 
-Name:
-Address:
+Customer:
+Name: ${customer.name || ""}
+Email: ${customer.email || ""}
+Phone: ${customer.phone || ""}
+
+Shipping address:
+${customer.address || ""}
+${customer.postcode || ""} ${customer.city || ""}
+${customer.country || ""}
+
+Notes:
+${customer.notes || ""}
 `;
+}
+
+
+/* =========================================
+   CHECKOUT
+   ========================================= */
+
+function openCheckout() {
+
+  if (!cart.length) {
+
+    return toast(
+      "Your cart is empty"
+    );
+
+  }
+
+
+  closeCart();
+
+
+  $("checkoutTotal").textContent =
+    euro(getCartTotal());
+
+
+  $("checkoutModal")
+    .classList
+    .add("show");
+}
+
+
+function submitCheckout(event) {
+
+  event.preventDefault();
+
+
+  if (!cart.length) {
+
+    return toast(
+      "Your cart is empty"
+    );
+
+  }
+
+
+  const customer = {
+
+    name:
+      $("checkoutName").value.trim(),
+
+    email:
+      $("checkoutEmail").value.trim(),
+
+    phone:
+      $("checkoutPhone").value.trim(),
+
+    address:
+      $("checkoutAddress").value.trim(),
+
+    postcode:
+      $("checkoutPostcode").value.trim(),
+
+    city:
+      $("checkoutCity").value.trim(),
+
+    country:
+      $("checkoutCountry").value.trim(),
+
+    notes:
+      $("checkoutNotes").value.trim()
+
+  };
+
+
+  const email =
+    "orders@torqebikes.com";
+
+
+  const subject =
+    "TorqEbikes Order";
+
+
+  const body =
+    orderText(customer);
+
+
+  /*
+    WICHTIG:
+    Diese Adresse bitte durch deine
+    echte Shop-E-Mail ersetzen.
+  */
+
+
+  location.href =
+    "mailto:" +
+    email +
+    "?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
+
+
+  toast(
+    "Order prepared"
+  );
 }
 
 
@@ -1222,7 +1379,6 @@ function renderAccount() {
           ${account.email}
         </p>
 
-
         <button
           class="small-btn"
           onclick="
@@ -1271,6 +1427,30 @@ $("closeCart").onclick =
 
 $("overlay").onclick =
   closeCart;
+
+
+/* =========================================
+   CHECKOUT BUTTON
+   ========================================= */
+
+if ($("checkoutButton")) {
+
+  $("checkoutButton").onclick =
+    openCheckout;
+
+}
+
+
+/* =========================================
+   CHECKOUT FORM
+   ========================================= */
+
+if ($("checkoutForm")) {
+
+  $("checkoutForm").onsubmit =
+    submitCheckout;
+
+}
 
 
 /* =========================================
@@ -1359,15 +1539,6 @@ $("search").oninput =
    CATEGORY FILTER
    ========================================= */
 
-/*
-   Deine vorhandenen Filter-Buttons
-   werden automatisch zu:
-
-   ALL PRODUCTS
-   EBIKE-KITS
-   MINI E MOTO
-*/
-
 const filterButtons =
   Array.from(
     document.querySelectorAll(
@@ -1439,9 +1610,7 @@ filterButtons
         filterButtons
           .forEach(filter =>
             filter.classList
-              .remove(
-                "active"
-              )
+              .remove("active")
           );
 
 
@@ -1460,11 +1629,6 @@ filterButtons
 
   });
 
-
-/*
-   WICHTIG:
-   Beim Start ALLE Produkte anzeigen.
-*/
 
 if (filterButtons.length) {
 
@@ -1495,8 +1659,9 @@ $("whatsapp").onclick =
 
 
     /*
-      HIER DEINE ECHTE
-      WhatsApp Nummer eintragen.
+      ERSETZEN:
+      Deine echte WhatsApp Nummer
+      ohne + und ohne Leerzeichen.
 
       Beispiel:
       4917612345678
@@ -1520,7 +1685,7 @@ $("whatsapp").onclick =
 
 
 /* =========================================
-   EMAIL
+   EMAIL ORDER
    ========================================= */
 
 $("email").onclick =
@@ -1535,8 +1700,13 @@ $("email").onclick =
     }
 
 
+    const email =
+      "orders@torqebikes.com";
+
+
     location.href =
-      "mailto:orders@torqebikes@gmx.de" +
+      "mailto:" +
+      email +
       "?subject=" +
       encodeURIComponent(
         "TorqEbikes Order Request"
