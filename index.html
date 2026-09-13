@@ -1,66 +1,1198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TorqEbikes — premium e-bike parts and accessories for custom builds.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="TorqEbikes — premium e-bike parts and accessories for custom builds."
+  >
+
   <title>TorqEbikes — Build Different</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
+
+
 <body>
-  <div class="announcement">FREE SHIPPING IN THE EU ON ORDERS OVER €100 · FOLLOW @TORQEBIKES</div>
+
+  <!-- =========================================
+       ANNOUNCEMENT
+       ========================================= -->
+
+  <div class="announcement">
+    FREE SHIPPING IN THE EU ON ORDERS OVER €100 · FOLLOW @TORQEBIKES
+  </div>
+
+
+  <!-- =========================================
+       HEADER
+       ========================================= -->
 
   <header>
-    <a class="brand" href="#home" aria-label="TorqEbikes home"><img src="images/torq-logo.png" alt="TorqEbikes logo"></a>
-    <nav><a href="#shop">Shop</a><a href="#about">About</a><a href="#tiktok">TikTok</a><a href="#reviews">Reviews</a><a href="#shipping">Shipping</a></nav>
+
+    <a
+      class="brand"
+      href="#home"
+      aria-label="TorqEbikes home"
+    >
+      <img
+        src="images/torq-logo.png"
+        alt="TorqEbikes logo"
+      >
+    </a>
+
+
+    <nav>
+
+      <a href="#shop">
+        Shop
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#tiktok">
+        TikTok
+      </a>
+
+      <a href="#reviews">
+        Reviews
+      </a>
+
+      <a href="#shipping">
+        Shipping
+      </a>
+
+    </nav>
+
+
     <div class="header-actions">
-      <button class="icon-button" id="openAccount" aria-label="Account" title="Account">♙</button>
-      <button class="cart-button" id="openCart">CART <span id="cartCount">0</span></button>
+
+      <button
+        class="icon-button"
+        id="openAccount"
+        aria-label="Account"
+        title="Account"
+      >
+        ♙
+      </button>
+
+
+      <button
+        class="cart-button"
+        id="openCart"
+      >
+        CART
+        <span id="cartCount">
+          0
+        </span>
+      </button>
+
     </div>
+
   </header>
 
+
+  <!-- =========================================
+       MAIN
+       ========================================= -->
+
   <main>
-    <section class="hero" id="home">
+
+
+    <!-- =======================================
+         HERO
+         ======================================= -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
       <div class="hero-copy">
-        <p class="eyebrow">TORQEBIKES PERFORMANCE</p>
-        <h1>BUILD<br><span>DIFFERENT.</span></h1>
-        <p>Premium e-bike parts, accessories and style upgrades for riders who refuse to ride stock.</p>
-        <div class="actions"><a class="btn primary" href="#shop">Shop Parts</a><a class="btn ghost" href="#tiktok">Watch TikTok</a></div>
-        <div class="meta"><span>⚡ Rider focused</span><span>⚙ Premium parts</span><span>🇪🇺 EU shipping</span></div>
+
+        <p class="eyebrow">
+          TORQEBIKES PERFORMANCE
+        </p>
+
+
+        <h1>
+          BUILD<br>
+          <span>DIFFERENT.</span>
+        </h1>
+
+
+        <p>
+          Premium e-bike parts, accessories and
+          style upgrades for riders who refuse
+          to ride stock.
+        </p>
+
+
+        <div class="actions">
+
+          <a
+            class="btn primary"
+            href="#shop"
+          >
+            Shop Parts
+          </a>
+
+
+          <a
+            class="btn ghost"
+            href="#tiktok"
+          >
+            Watch TikTok
+          </a>
+
+        </div>
+
+
+        <div class="meta">
+
+          <span>
+            ⚡ Rider focused
+          </span>
+
+          <span>
+            ⚙ Premium parts
+          </span>
+
+          <span>
+            🇪🇺 EU shipping
+          </span>
+
+        </div>
+
       </div>
-      <div class="hero-art"><div class="glow"></div><img src="images/hero-bike.png" alt="Electric bike" onerror="this.style.display='none'"></div>
+
+
+      <div class="hero-art">
+
+        <div class="glow"></div>
+
+        <img
+          src="images/hero-bike.png"
+          alt="Electric bike"
+          onerror="this.style.display='none'"
+        >
+
+      </div>
+
     </section>
 
-    <section class="ticker"><div>CNC PARTS</div><div>ODI STYLE</div><div>SURRON ACCESSORIES</div><div>RIDER ESSENTIALS</div><div>TORQEBIKES</div></section>
 
-    <section class="shop" id="shop">
-      <div class="heading"><div><p class="eyebrow">THE TORQ SHOP</p><h2>FEATURED <span>PARTS.</span></h2></div><p>Tap a product to see details, variants and availability.</p></div>
-      <div class="tools"><div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search products..."></div><div class="filters"><button class="filter active" data-cat="all">All</button><button class="filter" data-cat="controls">Controls</button><button class="filter" data-cat="style">Style</button><button class="filter" data-cat="comfort">Comfort</button><button class="filter" data-cat="accessories">Accessories</button><button class="filter" data-cat="display">Display</button></div></div>
-      <div class="grid" id="grid"></div><p class="no-results" id="noResults">No products found.</p>
+    <!-- =======================================
+         TICKER
+         ======================================= -->
+
+    <section class="ticker">
+
+      <div>
+        CNC PARTS
+      </div>
+
+      <div>
+        ODI STYLE
+      </div>
+
+      <div>
+        SURRON ACCESSORIES
+      </div>
+
+      <div>
+        RIDER ESSENTIALS
+      </div>
+
+      <div>
+        TORQEBIKES
+      </div>
+
     </section>
 
-    <section class="feature" id="about">
-      <div class="feature-image"><img src="images/build.png" alt="Custom e-bike build" onerror="this.style.display='none'"></div>
-      <div><p class="eyebrow">NOT JUST PARTS</p><h2>MAKE YOUR<br><span>BUILD YOURS.</span></h2><p class="feature-text">TorqEbikes is built around the culture: custom bikes, clean details, hard rides and content worth watching. Pick your parts, make the bike yours and tag us in the build.</p><div class="points"><div><b>01</b><span>Premium-looking upgrades</span></div><div><b>02</b><span>Simple, rider-focused selection</span></div><div><b>03</b><span>New drops & builds on TikTok</span></div></div></div>
+
+    <!-- =======================================
+         SHOP
+         ======================================= -->
+
+    <section
+      class="shop"
+      id="shop"
+    >
+
+      <div class="heading">
+
+        <div>
+
+          <p class="eyebrow">
+            THE TORQ SHOP
+          </p>
+
+          <h2>
+            FEATURED <span>PARTS.</span>
+          </h2>
+
+        </div>
+
+
+        <p>
+          Tap a product to see details,
+          variants and availability.
+        </p>
+
+      </div>
+
+
+      <div class="tools">
+
+
+        <!-- SEARCH -->
+
+        <div class="search">
+
+          <span>
+            ⌕
+          </span>
+
+          <input
+            id="search"
+            type="search"
+            placeholder="Search products..."
+          >
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+          <button
+            class="filter active"
+            data-cat="all"
+          >
+            All
+          </button>
+
+
+          <button
+            class="filter"
+            data-cat="controls"
+          >
+            Controls
+          </button>
+
+
+          <button
+            class="filter"
+            data-cat="style"
+          >
+            Style
+          </button>
+
+
+          <button
+            class="filter"
+            data-cat="comfort"
+          >
+            Comfort
+          </button>
+
+
+          <button
+            class="filter"
+            data-cat="accessories"
+          >
+            Accessories
+          </button>
+
+
+          <button
+            class="filter"
+            data-cat="display"
+          >
+            Display
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT GRID -->
+
+      <div
+        class="grid"
+        id="grid"
+      ></div>
+
+
+      <p
+        class="no-results"
+        id="noResults"
+      >
+        No products found.
+      </p>
+
     </section>
 
-    <section class="social" id="tiktok"><div><p class="eyebrow">FOLLOW THE BUILD</p><h2>TORQEBIKES<br><span>ON TIKTOK.</span></h2><p>Build videos, product clips, new drops and e-bike content.</p><a class="btn primary" href="https://www.tiktok.com/@torqebikes?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">Open TikTok</a></div></section>
 
-    <section class="reviews" id="reviews"><div class="section-title"><p class="eyebrow">RIDER FEEDBACK</p><h2>WHAT RIDERS <span>SAY.</span></h2></div><div class="review-window"><div class="review-track" id="reviewTrack"></div></div></section>
+    <!-- =======================================
+         ABOUT
+         ======================================= -->
 
-    <section class="shipping" id="shipping"><div><b>🇪🇺 EU SHIPPING</b><span>We ship across the whole European Union</span></div><div><b>📦 FAST DISPATCH</b><span>Orders prepared quickly</span></div><div><b>🔒 SECURE ORDER</b><span>Checkout-ready setup</span></div><div><b>💬 RIDER SUPPORT</b><span>Contact us with questions</span></div></section>
+    <section
+      class="feature"
+      id="about"
+    >
+
+      <div class="feature-image">
+
+        <img
+          src="images/build.png"
+          alt="Custom e-bike build"
+          onerror="this.style.display='none'"
+        >
+
+      </div>
+
+
+      <div>
+
+        <p class="eyebrow">
+          NOT JUST PARTS
+        </p>
+
+
+        <h2>
+          MAKE YOUR<br>
+          <span>BUILD YOURS.</span>
+        </h2>
+
+
+        <p class="feature-text">
+          TorqEbikes is built around the culture:
+          custom bikes, clean details, hard rides
+          and content worth watching. Pick your parts,
+          make the bike yours and tag us in the build.
+        </p>
+
+
+        <div class="points">
+
+          <div>
+            <b>01</b>
+            <span>
+              Premium-looking upgrades
+            </span>
+          </div>
+
+
+          <div>
+            <b>02</b>
+            <span>
+              Simple, rider-focused selection
+            </span>
+          </div>
+
+
+          <div>
+            <b>03</b>
+            <span>
+              New drops & builds on TikTok
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================
+         TIKTOK
+         ======================================= -->
+
+    <section
+      class="social"
+      id="tiktok"
+    >
+
+      <div>
+
+        <p class="eyebrow">
+          FOLLOW THE BUILD
+        </p>
+
+
+        <h2>
+          TORQEBIKES<br>
+          <span>ON TIKTOK.</span>
+        </h2>
+
+
+        <p>
+          Build videos, product clips,
+          new drops and e-bike content.
+        </p>
+
+
+        <a
+          class="btn primary"
+          href="https://www.tiktok.com/@torqebikes?is_from_webapp=1&sender_device=pc"
+          target="_blank"
+          rel="noopener"
+        >
+          Open TikTok
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================
+         REVIEWS
+         ======================================= -->
+
+    <section
+      class="reviews"
+      id="reviews"
+    >
+
+      <div class="section-title">
+
+        <p class="eyebrow">
+          RIDER FEEDBACK
+        </p>
+
+        <h2>
+          WHAT RIDERS <span>SAY.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="review-window">
+
+        <div
+          class="review-track"
+          id="reviewTrack"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================
+         SHIPPING FEATURES
+         ======================================= -->
+
+    <section
+      class="shipping"
+      id="shipping"
+    >
+
+      <div>
+
+        <b>
+          🇪🇺 EU SHIPPING
+        </b>
+
+        <span>
+          We ship across the European Union.
+          Shipping costs are shown before order completion.
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <b>
+          📦 FAST DISPATCH
+        </b>
+
+        <span>
+          Orders are processed after successful payment.
+          Shipping times depend on availability,
+          destination and carrier.
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <b>
+          🔒 SECURE ORDER
+        </b>
+
+        <span>
+          Your order details are handled securely.
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <b>
+          💬 RIDER SUPPORT
+        </b>
+
+        <span>
+          Contact us if you have questions
+          about compatibility or your order.
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================
+         WARRANTY / RETURNS / SHIPPING INFO
+         ======================================= -->
+
+    <section class="shop-info">
+
+
+      <!-- WARRANTY -->
+
+      <div class="info-block">
+
+        <p class="eyebrow">
+          TORQEBIKES WARRANTY
+        </p>
+
+
+        <h2>
+          6-MONTH<br>
+          <span>WARRANTY.</span>
+        </h2>
+
+
+        <p>
+          All eligible products are covered by
+          a 6-month warranty from the date of purchase.
+        </p>
+
+
+        <p>
+          Warranty coverage applies to manufacturing
+          defects and defects occurring under proper
+          and intended use.
+        </p>
+
+
+        <p>
+          Warranty coverage does not include incorrect
+          installation, improper use, accidents,
+          modifications, crashes, water damage,
+          normal wear and tear, or external influences.
+        </p>
+
+
+        <p>
+          Products must be installed correctly and
+          professionally by a qualified mechanic.
+          Proof of professional installation, such as
+          an invoice or installation receipt,
+          may be required.
+        </p>
+
+
+        <p>
+          If you believe your product has a defect,
+          contact us with your order details and
+          a description of the issue.
+          Photos or videos may be requested so we
+          can review the case and determine the
+          appropriate solution.
+        </p>
+
+      </div>
+
+
+      <!-- RETURNS -->
+
+      <div class="info-block">
+
+        <p class="eyebrow">
+          RETURNS
+        </p>
+
+
+        <h2>
+          RETURNS &<br>
+          <span>DEFECTIVE PRODUCTS.</span>
+        </h2>
+
+
+        <p>
+          Please check product compatibility,
+          variant selection and connection type
+          carefully before ordering.
+        </p>
+
+
+        <p>
+          If your product arrives damaged or is
+          defective, please contact us as soon
+          as possible.
+          We will review the issue and determine
+          the appropriate solution, which may include
+          replacement, repair or another suitable solution.
+        </p>
+
+
+        <p>
+          For non-defective products, any return
+          or cancellation rights required by
+          mandatory consumer law remain unaffected.
+        </p>
+
+
+        <p>
+          Nothing in this policy limits your
+          statutory consumer rights.
+        </p>
+
+      </div>
+
+
+      <!-- SHIPPING -->
+
+      <div class="info-block">
+
+        <p class="eyebrow">
+          SHIPPING
+        </p>
+
+
+        <h2>
+          SHIPPING<br>
+          <span>INFORMATION.</span>
+        </h2>
+
+
+        <p>
+          Orders are processed after successful payment.
+        </p>
+
+
+        <p>
+          Shipping times vary depending on product
+          availability, destination and the shipping
+          carrier. Tracking information will be
+          provided where available.
+        </p>
+
+
+        <p>
+          Customers are responsible for providing
+          a correct and complete shipping address.
+        </p>
+
+
+        <p>
+          TorqEbikes is not responsible for delivery
+          problems caused by incorrect or incomplete
+          customer address information.
+        </p>
+
+
+        <p>
+          Shipping costs are shown before completion
+          of the order.
+        </p>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer><div><a class="brand" href="#home"><img src="images/torq-logo.png" alt="TorqEbikes"></a><p>Premium e-bike parts & accessories.</p></div><div class="footer-links"><a href="#shop">Shop</a><a href="#about">About</a><a href="#shipping">Shipping</a><a href="mailto:orders@torqebikes.com">Contact</a></div><small>© 2026 TorqEbikes. All rights reserved.</small></footer>
 
-  <div class="overlay" id="overlay"></div>
-  <aside class="drawer" id="drawer"><div class="cart-head"><b>YOUR CART</b><button id="closeCart">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-bottom"><div class="total"><span>Subtotal</span><b id="total">€0.00</b></div><p>Shipping calculated at checkout.</p><button class="order whatsapp" id="whatsapp">ORDER VIA WHATSAPP</button><button class="order email" id="email">ORDER VIA EMAIL</button></div></aside>
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
 
-  <div class="modal" id="productModal"><div class="modal-card product-modal"><button class="modal-close" data-close="productModal">×</button><div class="modal-image"><img id="modalImage" alt=""><span id="modalBadge" class="badge"></span></div><div class="modal-info"><p class="eyebrow" id="modalCategory"></p><h2 id="modalName"></h2><p id="modalDescription" class="modal-description"></p><div class="modal-price" id="modalPrice"></div><div id="variantArea"></div><div class="shipping-note">Shipping calculated at checkout.</div><button id="modalAdd" class="modal-add"></button></div></div></div>
+  <footer>
 
-  <div class="modal" id="accountModal"><div class="modal-card account-card"><button class="modal-close" data-close="accountModal">×</button><img class="account-logo" src="images/torq-logo.png" alt="TorqEbikes"><p class="eyebrow">TORQ ACCOUNT</p><h2 id="accountTitle">CREATE YOUR ACCOUNT</h2><p class="account-sub">Save your details locally on this device for faster orders.</p><form id="accountForm"><input id="accountName" required placeholder="Full name"><input id="accountEmail" required type="email" placeholder="Email address"><button class="modal-add" type="submit">CREATE ACCOUNT</button></form><div id="accountSaved" class="account-saved"></div></div></div>
+    <div>
 
-  <div class="toast" id="toast"></div>
+      <a
+        class="brand"
+        href="#home"
+      >
+
+        <img
+          src="images/torq-logo.png"
+          alt="TorqEbikes"
+        >
+
+      </a>
+
+
+      <p>
+        Premium e-bike parts & accessories.
+      </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <a href="#shop">
+        Shop
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#shipping">
+        Shipping
+      </a>
+
+      <a href="mailto:orders@torqebikes.com">
+        Contact
+      </a>
+
+    </div>
+
+
+    <small>
+      © 2026 TorqEbikes. All rights reserved.
+    </small>
+
+  </footer>
+
+
+  <!-- =========================================
+       CART OVERLAY
+       ========================================= -->
+
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+
+  <!-- =========================================
+       CART DRAWER
+       ========================================= -->
+
+  <aside
+    class="drawer"
+    id="drawer"
+  >
+
+    <div class="cart-head">
+
+      <b>
+        YOUR CART
+      </b>
+
+
+      <button id="closeCart">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div class="cart-bottom">
+
+      <div class="total">
+
+        <span>
+          Subtotal
+        </span>
+
+        <b id="total">
+          €0.00
+        </b>
+
+      </div>
+
+
+      <p>
+        Shipping calculated at checkout.
+      </p>
+
+
+      <!-- CHECKOUT -->
+
+      <button
+        class="order checkout"
+        id="checkoutButton"
+      >
+        CHECKOUT
+      </button>
+
+
+      <!-- WHATSAPP -->
+
+      <button
+        class="order whatsapp"
+        id="whatsapp"
+      >
+        ORDER VIA WHATSAPP
+      </button>
+
+
+      <!-- EMAIL -->
+
+      <button
+        class="order email"
+        id="email"
+      >
+        ORDER VIA EMAIL
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================================
+       PRODUCT MODAL
+       ========================================= -->
+
+  <div
+    class="modal"
+    id="productModal"
+  >
+
+    <div class="modal-card product-modal">
+
+
+      <button
+        class="modal-close"
+        data-close="productModal"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-image">
+
+        <img
+          id="modalImage"
+          alt=""
+        >
+
+
+        <span
+          id="modalBadge"
+          class="badge"
+        ></span>
+
+      </div>
+
+
+      <div class="modal-info">
+
+        <p
+          class="eyebrow"
+          id="modalCategory"
+        ></p>
+
+
+        <h2 id="modalName"></h2>
+
+
+        <p
+          id="modalDescription"
+          class="modal-description"
+        ></p>
+
+
+        <div
+          class="modal-price"
+          id="modalPrice"
+        ></div>
+
+
+        <div
+          id="variantArea"
+        ></div>
+
+
+        <div class="shipping-note">
+          Shipping calculated at checkout.
+        </div>
+
+
+        <button
+          id="modalAdd"
+          class="modal-add"
+        >
+          ADD TO CART
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       CHECKOUT MODAL
+       ========================================= -->
+
+  <div
+    class="modal"
+    id="checkoutModal"
+  >
+
+    <div class="modal-card checkout-card">
+
+
+      <button
+        class="modal-close"
+        data-close="checkoutModal"
+      >
+        ×
+      </button>
+
+
+      <p class="eyebrow">
+        TORQEBIKES CHECKOUT
+      </p>
+
+
+      <h2>
+        COMPLETE<br>
+        <span>YOUR ORDER.</span>
+      </h2>
+
+
+      <p class="account-sub">
+        Enter your shipping details below.
+        Shipping costs will be confirmed before
+        the order is processed.
+      </p>
+
+
+      <form id="checkoutForm">
+
+
+        <input
+          id="checkoutName"
+          required
+          placeholder="Full name"
+        >
+
+
+        <input
+          id="checkoutEmail"
+          required
+          type="email"
+          placeholder="Email address"
+        >
+
+
+        <input
+          id="checkoutPhone"
+          placeholder="Phone number"
+        >
+
+
+        <input
+          id="checkoutAddress"
+          required
+          placeholder="Street and house number"
+        >
+
+
+        <div class="checkout-row">
+
+          <input
+            id="checkoutPostcode"
+            required
+            placeholder="Postcode"
+          >
+
+
+          <input
+            id="checkoutCity"
+            required
+            placeholder="City"
+          >
+
+        </div>
+
+
+        <input
+          id="checkoutCountry"
+          required
+          value="Germany"
+          placeholder="Country"
+        >
+
+
+        <textarea
+          id="checkoutNotes"
+          placeholder="Order notes (optional)"
+          rows="4"
+        ></textarea>
+
+
+        <div class="checkout-summary">
+
+          <span>
+            Order total
+          </span>
+
+
+          <strong id="checkoutTotal">
+            €0.00
+          </strong>
+
+        </div>
+
+
+        <p class="checkout-small">
+          Shipping costs are calculated separately
+          and confirmed before your order is processed.
+        </p>
+
+
+        <button
+          type="submit"
+          class="modal-add"
+        >
+          PLACE ORDER
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       ACCOUNT MODAL
+       ========================================= -->
+
+  <div
+    class="modal"
+    id="accountModal"
+  >
+
+    <div class="modal-card account-card">
+
+
+      <button
+        class="modal-close"
+        data-close="accountModal"
+      >
+        ×
+      </button>
+
+
+      <img
+        class="account-logo"
+        src="images/torq-logo.png"
+        alt="TorqEbikes"
+      >
+
+
+      <p class="eyebrow">
+        TORQ ACCOUNT
+      </p>
+
+
+      <h2 id="accountTitle">
+        CREATE YOUR ACCOUNT
+      </h2>
+
+
+      <p class="account-sub">
+        Save your details locally on this device
+        for faster orders.
+      </p>
+
+
+      <form id="accountForm">
+
+        <input
+          id="accountName"
+          required
+          placeholder="Full name"
+        >
+
+
+        <input
+          id="accountEmail"
+          required
+          type="email"
+          placeholder="Email address"
+        >
+
+
+        <button
+          class="modal-add"
+          type="submit"
+        >
+          CREATE ACCOUNT
+        </button>
+
+      </form>
+
+
+      <div
+        id="accountSaved"
+        class="account-saved"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       TOAST
+       ========================================= -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+
   <script src="script.js"></script>
+
 </body>
+
 </html>
