@@ -732,29 +732,3 @@ box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{backgr
    
 
 }
-/* TEST - REVIEWS */
-.review-card {
-  flex: 0 0 310px;
-  width: 310px;
-  min-height: 180px;
-  margin-right: 14px;
-  background: #111;
-  border: 1px solid #ff4a00;
-}
-
-.review-track {
-  display: flex;
-  width: max-content;
-  gap: 0;
-  animation: marquee 38s linear infinite;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
